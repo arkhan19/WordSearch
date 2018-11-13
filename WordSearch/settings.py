@@ -26,7 +26,9 @@ SECRET_KEY = '40s0v#kxs+!)%e%%==%ewd1kdmi59tml=e-vjv!6v17iq*ktw)'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+DATABASE_NAME = 'pycharm'
+DATABASE_USER = 'f3n1xx'
+DATABASE_PASS = 'abcdefgh'
 
 # Application definition
 
@@ -75,12 +77,25 @@ WSGI_APPLICATION = 'WordSearch.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': DATABASE_NAME,
+        'USER': DATABASE_USER,
+        'PASSWORD': DATABASE_PASS,
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
+
+
 
 
 # Password validation
